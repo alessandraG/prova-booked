@@ -1,9 +1,19 @@
 <html>
 <head>
+<style>
+
+ div {
+     width: 50px;
+     height: 70px;
+     align-content: center;
+    }
+  td, th{
+      vertical-align: bottom;
+    }
+
+</style>
 </head>
 <body>
-
-
 
 <?php
 
@@ -21,9 +31,9 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully"."<br>";
 
-$sql = "SELECT user_id, fname FROM users";
+$sql = "SELECT user_id, fname, email FROM users";
 $result = $conn->query($sql);
-$table="<table cellspacing='2' cellpadding='2'width='300'style='border:1px solid' >
+$table="<table cellspacing='2' cellpadding='2'width='450'style='border:1px solid'  >
 
 <tr>
 
@@ -33,8 +43,12 @@ $table="<table cellspacing='2' cellpadding='2'width='300'style='border:1px solid
 <th>
 <font color='black'>nome</font>
 </th>
+<th>
+<font color='black'>email</font>
+</th>
 </tr>
 </table>";
+
 echo $table;
 
 if ($result->num_rows > 0) {
@@ -44,18 +58,35 @@ if ($result->num_rows > 0) {
     //    echo "user_id: ".$row["user_id"]."<br>";
          $id=$row['user_id'];
          $name = $row['fname'];
+         $email=$row['email'];
 
-         $table="<table cellspacing='1' cellpadding='1'width='300'style='border:1px solid' >
-
-         <tr>
+         $table="<table cellspacing='2' cellpadding='2'width='450'style='border:1px solid'  >
 
          <th>
-        <font color=black> $id</font>
+          <td>
+            <div>
+                <font color=black> $id
+                </font>
+            </div>
+            </td>
+         </th>
+
+
+         <th>
+          <td>
+            <div>
+              <font color=black> $name
+              </font>
+            </div>
+         </td>
          </th>
          <th>
-         <font color=black> $name</font>
+          <td>
+            <div>
+            <font color=black>$email</font>
+            </div>
          </th>
-         </tr>
+         </td>
          </table>";
          echo $table;
     }
