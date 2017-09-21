@@ -59,8 +59,11 @@ $current_dateEnd = new DateTime("tomorrow");
 $current_dateStart->setTime(7, 00,01);
 $current_dateEnd->setTime(23, 59, 59);
 
-//- parsare giorno
+// C0SE DA FARE
 //- dividere mattina/pomeriggio
+//- modificare il fuso orario e mettere quello Italiano
+// - creare un file a parte per i CSS
+
 $q = "SELECT rs.title, ri.start_date, ri.end_date, r.name
      FROM resources r
      INNER JOIN reservation_resources rr
