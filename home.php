@@ -102,6 +102,8 @@ $row = $result->fetch_assoc();
 $numero_record = $result->num_rows;
 //data di oggi
 $p = date('Y-m-d');
+//orario attuale
+$today = date("H:i:s");
 $title=$row['title'];
 $start_date = $row['start_date'];
 $end_date=$row['end_date'];
@@ -112,43 +114,91 @@ for ($i= 0; $i < $numero_record; $i++){
     $start_date = $row['start_date'];
     $end_date=$row['end_date'];
     $name = $row['name'];
-    //echo "titolo: ".$title." e data inizio: ".$start_date." e data di fine: ".$end_date." e nome: ".$name."\n"."\n"."\n"."\n";
     $oggi = explode(" ", $start_date);
+
+    $oraInizio =  $oggi[1];
+    $oraFine =explode(" ", $end_date);
     if ( $p == $oggi[0] ){
-        $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
-        <th>
-         <td>
-           <div>
-               <font color=black> $name
-               </font>
-           </div>
-           </td>
-        </th>
-        <th>
-         <td>
-           <div>
-               <font color=black> $title
-               </font>
-           </div>
-           </td>
-        </th>
-        <th>
-         <td>
-           <div>
-             <font color=black> $start_date
-             </font>
-           </div>
-        </td>
-        </th>
-        <th>
-         <td>
-           <div>
-           <font color=black>$end_date</font>
-           </div>
-        </th>
-        </td>
-        </table>";
-        echo $table;
+        //dividere mattina e pomeriggio
+        // se l'orario di adesso è < 13
+        if ($today < "13:00:00"){
+            if ($oggi[1] < "13:00:00"){
+                $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
+                <th>
+                 <td>
+                   <div>
+                       <font color=black> $name
+                       </font>
+                   </div>
+                   </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                       <font color=black> $title
+                       </font>
+                   </div>
+                   </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                     <font color=black> $oraInizio
+                     </font>
+                   </div>
+                </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                   <font color=black>$oraFine[1]</font>
+                   </div>
+                </th>
+                </td>
+                </table>";
+                echo $table;
+            }
+        }
+        else {
+            if ($oggi[1] > "13:00:00"){
+                $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
+                <th>
+                 <td>
+                   <div>
+                       <font color=black> $name
+                       </font>
+                   </div>
+                   </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                       <font color=black> $title
+                       </font>
+                   </div>
+                   </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                     <font color=black> $oraInizio
+                     </font>
+                   </div>
+                </td>
+                </th>
+                <th>
+                 <td>
+                   <div>
+                   <font color=black>$oraFine[1]</font>
+                   </div>
+                </th>
+                </td>
+                </table>";
+                echo $table;
+            }
+        }
+
+
     }
 }
 echo '<div class="footer">';
