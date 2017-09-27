@@ -35,39 +35,40 @@ $q = "SELECT rs.title, ri.start_date, ri.end_date, r.name
      ON ri.series_id = rs.series_id";
 $result = $conn->query($q);
 $today_date=date("Y-m-d");
-echo '<div class="header" style="text-align:right; color:FloralWhite">';
+echo '<div class="header" style="text-align:left; color:FloralWhite">';
 echo 'Aule prenotate';
 echo '</div>';
 echo '<br>';
+
 $table="<table width='450'style='border:1px bold:1px solid '  >
 <tr>
 <th>
-  <td>
+
     <div>
     <font>Aula</font>
     </div>
-  </td>
+
 </th>
 <th>
-  <td>
+
     <div>
 <font>Title</font>
     </div>
-  </td>
+
 </th>
 <th>
-  <td>
+
     <div>
     <font>Start date</font>
     </div>
-  </td>
+
 </th>
 <th>
-  <td>
+
       <div>
         <font>End date</font>
       </div>
-  </td>
+
 </th>
 </tr>
 </table>";
@@ -99,74 +100,74 @@ for ($i= 0; $i < $numero_record; $i++){
             if ($oggi[1] < "13:00:00"){
                 $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
                 <th>
-                 <td>
+
                    <div>
                        <font color=black> $name
                        </font>
                    </div>
-                   </td>
+
                 </th>
                 <th>
-                 <td>
+
                    <div>
                        <font color=black> $title
                        </font>
                    </div>
-                   </td>
+
                 </th>
                 <th>
-                 <td>
+
                    <div>
                      <font color=black> $oraInizio
                      </font>
                    </div>
-                </td>
+
                 </th>
                 <th>
-                 <td>
+
                    <div>
                    <font color=black>$oraFine[1]</font>
                    </div>
                 </th>
-                </td>
+
                 </table>";
                 echo $table;
             }
         }
         else {
             if ($oggi[1] > "13:00:00"){
-                $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
+                $table="<table  cellpadding='2'width='450'style='border:1px '  >
                 <th>
-                 <td>
+
                    <div>
                        <font color=black> $name
                        </font>
                    </div>
-                   </td>
+
                 </th>
                 <th>
-                 <td>
-                   <div>
+
+
+                  <div>
                        <font color=black> $title
                        </font>
                    </div>
-                   </td>
+
                 </th>
                 <th>
-                 <td>
+
                    <div>
                      <font color=black> $oraInizio
                      </font>
                    </div>
-                </td>
+
                 </th>
                 <th>
-                 <td>
                    <div>
                    <font color=black>$oraFine[1]</font>
                    </div>
                 </th>
-                </td>
+
                 </table>";
                 echo $table;
             }
