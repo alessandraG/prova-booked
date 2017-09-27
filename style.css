@@ -1,0 +1,46 @@
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #ab1f1c;
+    height: 250px;
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 30px;
+    text-align: right;
+    /*background-image:url('logo-red-sapienza.jpg');*/
+}
+.column.side {
+    width: 25%;
+}
+.footer {
+    background-color: #ab1f1c;
+    padding-top: 10px;
+    padding-right: 30px;
+    width: 100%;
+    text-align: right;
+}
+table {
+    width: 100%;
+    padding: 5px;
+    border: 1px;
+}
+
+div {
+    border: "1";
+    width: 100px;
+    height: 100px;
+    text-align: center;
+   }
+ td, th, thead{
+    text-align: center;
+    border: 1px solid black;
+  }
+</style>
