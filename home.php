@@ -35,8 +35,9 @@ $q = "SELECT rs.title, ri.start_date, ri.end_date, r.name
      ON ri.series_id = rs.series_id";
 $result = $conn->query($q);
 $today_date=date("Y-m-d");
-echo '<div class="header" style="text-align:left; color:FloralWhite">';
-echo 'Aule prenotate';
+
+echo '<div class="header" style="color:FloralWhite">';
+echo 'Classrooms reserved';
 echo '</div>';
 echo '<br>';
 
@@ -45,28 +46,28 @@ $table="<table width='450'style='border:1px bold:1px solid '  >
 <th>
 
     <div>
-    <font>Aula</font>
+    <font>Classroom</font>
     </div>
 
 </th>
 <th>
 
     <div>
-<font>Title</font>
+    <font>Title</font>
     </div>
 
 </th>
 <th>
 
     <div>
-    <font>Start date</font>
+    <font>Start time</font>
     </div>
 
 </th>
 <th>
 
       <div>
-        <font>End date</font>
+        <font>End time</font>
       </div>
 
 </th>
@@ -100,12 +101,10 @@ for ($i= 0; $i < $numero_record; $i++){
             if ($oggi[1] < "13:00:00"){
                 $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
                 <th>
-
                    <div>
                        <font color=black> $name
                        </font>
                    </div>
-
                 </th>
                 <th>
 
@@ -124,7 +123,6 @@ for ($i= 0; $i < $numero_record; $i++){
 
                 </th>
                 <th>
-
                    <div>
                    <font color=black>$oraFine[1]</font>
                    </div>
@@ -175,10 +173,13 @@ for ($i= 0; $i < $numero_record; $i++){
     }
 }
 echo '<div class="footer" style="color:FloralWhite">';
-echo 'data di oggi:'."\n".$today_date;
+echo 'today\'s date:'."\n".$today_date;
+echo '</div>';
+echo '<div class="sidenav" style="float:right">';
+echo '</div>';
+echo '<div class="sidenav" style="float:right">';
 echo '</div>';
 $conn->close();
 ?>
-
 </body>
 </html>
