@@ -175,11 +175,25 @@ for ($i= 0; $i < $numero_record; $i++){
 echo '<div class="footer" style="color:FloralWhite">';
 echo 'today\'s date:'."\n".$today_date;
 echo '</div>';
-echo '<div class="sidenav" style="float:right">';
-echo '</div>';
-echo '<div class="sidenav" style="float:right">';
-echo '</div>';
 $conn->close();
 ?>
+  
+<div id="map" style="width:600px;height:400px;background:grey;float:right">
+  <script>
+  function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: 41.8928511, lng: 12.492875300000037}
+        });
+
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+
+        }
+
+  </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+</div>
+
 </body>
 </html>
