@@ -1,0 +1,56 @@
+<html>
+<head>
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+
+    <script>
+    function showUser(str) {
+      if (str=="") {
+        document.getElementById("txtHint").innerHTML="";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+      } else { // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+          document.getElementById("txtHint").innerHTML=this.responseText;
+        }
+      }
+      xmlhttp.open("GET","scriptProfessori.php?q="+str,true);
+      xmlhttp.send();
+    }
+    </script>
+
+</head>
+
+<body>
+
+  <div class="main">
+
+  <div class="header">
+  <img src="/sapienza.png" width="143" height="100" />
+  </div>
+
+  <div class="content">
+      <input type="text" value="" name="valore" onchange="showUser(this.value)">
+      <input type="SUBMIT" value="Cerca" onclick="showUser(document.getElementByName("valore").value)">
+  <br>
+
+  <div id="txtHint">
+  </div>
+
+  <form action="home2.php" method="get">
+      <input type="submit" value="Torna indietro"
+           name="Submit" id="frm1_submit" />
+  </form>
+  </div>
+
+</div>
+
+</body>
+</html>
