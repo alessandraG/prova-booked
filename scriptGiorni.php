@@ -1,8 +1,17 @@
 <html>
 <head>
-  <link href="style_mobile.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
+
+  <div class="main">
+  <div class="header">
+
+    <img src="/sapienza.png" width="143" height="100" />
+   </div>
+    <div class="content">
+
 
 <?php
 if($_POST['anni']=='2017'){
@@ -266,5 +275,8 @@ for ($i=0;$i<=$numero_record;$i++){
 $conn->close();
 ?>
 
+</div>
+</div>
+
   </body>
-</html>
+  </html>
