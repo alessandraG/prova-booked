@@ -86,3 +86,16 @@ a {
   color:#ccc;
 }
 
+
+#wrapper {
+}
+#div1 {
+    display: inline-block;
+    background-color: grey;
+    float:right;
+}
+#map {
+    display: inline-block;
+    float:right;
+    border: 1px solid green;
+}
