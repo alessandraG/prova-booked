@@ -1,5 +1,6 @@
 <html>
 <head>
+  <meta http-equiv="refresh" content="10800">
   <link href="style.css" rel="stylesheet" type="text/css">
   <meta charset="UTF-8">
 </head>
@@ -9,6 +10,9 @@
 
       <div class="header">
         <img src="/sapienza.png" width="143" height="100" />
+          <div style="text-align: center;" bottom="4" >
+      <h1 >Oggi a San Pietro in Vincoli</h1>
+    </div>
       </div>
 
   <div class="content" style="margin-top:40px">
@@ -24,10 +28,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        // C0SE DA FARE
-        //- modificare il fuso orario e mettere quello Italiano
-        //- aggiungere il ricarico della pagina ogni ora ??
-        // prima query
+        
         $q = "SELECT rs.title, ri.start_date, ri.end_date, r.name
              FROM resources r
              INNER JOIN reservation_resources rr
@@ -36,13 +37,15 @@
              ON rs.series_id = rr.series_id
              INNER JOIN reservation_instances ri
              ON ri.series_id = rs.series_id";
+    
         $result = $conn->query($q);
         $today_date=date("Y-m-d");
+    
         $table="<table width='450'style='border:1px bold:1px solid '  >
         <tr>
         <th>
             <div>
-            <font>Aula</font>
+            <font>Classroom</font>
             </div>
         </th>
         <th>
@@ -71,21 +74,28 @@
         $p = date('Y-m-d');
         //current time
         $today = date("H:i:s");
+    
         $title=$row['title'];
         $start_date = $row['start_date'];
         $end_date=$row['end_date'];
         $name = $row['name'];
+    
         for ($i= 0; $i <= $numero_record; $i++){
             $row = $result->fetch_assoc();
+          
             $title=$row['title'];
             $start_date = $row['start_date'];
             $end_date=$row['end_date'];
             $name = $row['name'];
+          
             $oggi = explode(" ", $start_date);
+          
             $oraInizio =  $oggi[1];
             $oraFine =explode(" ", $end_date);
+          
             if ( $p == $oggi[0] ){
                 $oraInt = (int)$oraInizio +2;
+              $oraInt2 = (int)$oraFine[1] +2;
                 // se l'orario di adesso è < 13
                 if ($today < "13:00:00"){
                     if ($oraInt < 13){
@@ -104,13 +114,13 @@
                         </th>
                         <th>
                            <div>
-                             <font color=black> $oraInizio
+                             <font color=black> $oraInt
                              </font>
                            </div>
                         </th>
                         <th>
                            <div>
-                           <font color=black>$oraFine[1]</font>
+                           <font color=black>$oraInt2</font>
                            </div>
                         </th>
                         </table>";
@@ -135,13 +145,13 @@
                         </th>
                         <th>
                            <div>
-                             <font color=black> $oraInizio
+                             <font color=black> $oraInt
                              </font>
                            </div>
                         </th>
                         <th>
                            <div>
-                           <font color=black>$oraFine[1]</font>
+                           <font color=black>$oraInt2</font>
                            </div>
                         </th>
                         </table>";
