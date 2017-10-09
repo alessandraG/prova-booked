@@ -108,9 +108,9 @@ for ($i= 0; $i <= $numero_record; $i++){
     $oraInizio =  $oggi[1];
     $oraFine =explode(" ", $end_date);
     if ( $p == $oggi[0] ){
-
+      $oraInt = (int)$oraInizio +2;
         // se l'orario di adesso è < 13
-        if ($today < "13:00:00"){
+        if ($oraInt < 13){
             if ($oggi[1] < "13:00:00"){
                 $table="<table  cellpadding='2'width='450'style='border:1px solid'  >
                 <th>
@@ -149,7 +149,7 @@ for ($i= 0; $i <= $numero_record; $i++){
             }
         }
         else {
-            if ($oggi[1] > "13:00:00"){
+            if ($oraInt > 13){
                 $table="<table  cellpadding='2'width='450'style='border:1px '  >
                 <th>
 
