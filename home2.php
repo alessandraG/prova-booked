@@ -109,6 +109,7 @@ for ($i= 0; $i <= $numero_record; $i++){
     $oraFine =explode(" ", $end_date);
     if ( $p == $oggi[0] ){
       $oraInt = (int)$oraInizio +2;
+      $oraInt2 = (int)$oraFine[1] +2;
         // se l'orario di adesso è < 13
         if ($oraInt < 13){
             if ($oggi[1] < "13:00:00"){
@@ -132,7 +133,7 @@ for ($i= 0; $i <= $numero_record; $i++){
                 <th>
 
                    <div>
-                     <font color=black> $oraInizio
+                     <font color=black> $oraInt
                      </font>
                    </div>
 
@@ -140,7 +141,7 @@ for ($i= 0; $i <= $numero_record; $i++){
                 <th>
 
                    <div>
-                   <font color=black>$oraFine[1]</font>
+                   <font color=black>$oraInt2</font>
                    </div>
                 </th>
 
@@ -171,14 +172,14 @@ for ($i= 0; $i <= $numero_record; $i++){
                 <th>
 
                    <div>
-                     <font color=black> $oraInizio
+                     <font color=black> $oraInt
                      </font>
                    </div>
 
                 </th>
                 <th>
                    <div>
-                   <font color=black>$oraFine[1]</font>
+                   <font color=black>$oraInt2</font>
                    </div>
                 </th>
 
